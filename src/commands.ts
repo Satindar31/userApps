@@ -868,6 +868,21 @@ export default [
 		],
 	},
 	{
+		name: "qalc",
+		description: "Run a calculation using Qalc",
+		type: ApplicationCommandType.ChatInput,
+		integration_types: [0, 1],
+		contexts: [0, 1, 2],
+		options: [
+			{
+				name: "calculation",
+				type: ApplicationCommandOptionType.String,
+				description: "calculation to run",
+				required: true,
+			},
+		],
+	},
+	{
 		name: "console",
 		description: "Executes the given command",
 		type: ApplicationCommandType.ChatInput,

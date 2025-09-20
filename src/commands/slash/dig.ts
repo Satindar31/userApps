@@ -8,6 +8,7 @@ import {
 } from "discord.js";
 
 const dnsRegex = /^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)+([A-Za-z]{2,63})|((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9]))$/gm
+const cleanRegex = /[`$"\\\n]/g;
 
 export default {
 	name: "dig",
@@ -68,10 +69,12 @@ export default {
 	},
 
 	async execute(_client: Client, int: ChatInputCommandInteraction) {
-		const domain = int.options.getString("domain", true);
+		const domain = int.options.getString("domain", true)
+			.replace(cleanRegex, "");
 		const recordType = int.options.getString("record") || "A";
 		const short = int.options.getBoolean("short") || false;
-		let provider = int.options.getString("provider") || "1.1.1.1";
+		let provider = int.options.getString("provider")
+			?.replace(cleanRegex, "") || "1.1.1.1";
 		const cdflag = int.options.getBoolean("cdflag") || false;
 
 		if (!dnsRegex.test(provider)) provider = "1.1.1.1";
