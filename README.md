@@ -1,8 +1,8 @@
 # Installation
 
-1. Run `git clone https://github.com/Stef-00012/userApps`.
+1. Run `git clone https://git.stefdp.com/Stef/userApps`.
 2. Open the folder, `cd userApps`.
-3. rename `.env.example` to `.env` and fill the environment variables (See [#Config](https://github.com/Stef-00012/Discord-User-Installed-Apps/#config))
+3. rename `.env.example` to `.env` and fill the environment variables (See [#Config](#config))
 4. run `npm run db:setup`
 5. Run `docker compose up -d`.
 
@@ -48,12 +48,12 @@
 
 If you can not selfhost the bot, you can use the already hosted versions.
 
-- By [Stef-00012](https://github.com/Stef-00012) (me) - [here](https://discord.com/oauth2/authorize?client_id=1223221223685886032).
+- By [Stef-DP](https://github.com/Stef-DP) (me) - [here](https://discord.com/oauth2/authorize?client_id=1223221223685886032).
 - By [CreeperITA104](https://github.com/Creeperita09) - [here](https://discord.com/oauth2/authorize?client_id=1222184630581592107).
 - By [Ninja-5000](https://github.com/Ninja-5000) - [here](https://discord.com/oauth2/authorize?client_id=1042885313367900211).
 - By [Satindar](https://github.com/satindar31) - [here](https://discord.com/oauth2/authorize?client_id=1327306907844612126).
 
 # Credits
 
-- Code: [Stef-00012](https://github.com/Stef-00012).
+- Code: [Stef-DP](https://github.com/Stef-DP).
 - Dashboard Frontend: [Ninja-5000](https://github.com/Ninja-5000).
