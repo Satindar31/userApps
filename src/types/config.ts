@@ -5,6 +5,7 @@ export interface Config {
 	autoUpdateAvatar: string | boolean;
 	zipline?: ZiplineConfig;
 	naviac?: NaviacConfig;
+	ai?: AIConfig;
 	web?: WebConfig;
 }
 
@@ -22,6 +23,12 @@ export interface NaviacConfig {
 }
 
 export type NaviacConfigKeys = keyof NaviacConfig;
+
+export interface AIConfig {
+	baseUrl?: string;
+	model?: string;
+	apiKey?: string;
+}
 
 export interface WebConfig {
 	enabled: boolean;

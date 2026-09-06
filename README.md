@@ -22,6 +22,10 @@
 - `NAVIAC_USERNAME`: Username for the N.A.V.I.A.C. API authentication. [^2]
 - `NAVIAC_TOKEN`: Token for the N.A.V.I.A.C. API authentication. [^2]
 
+- `AI_BASE_URL`: OpenAI-compatible provider base URL ending in `/v1`.
+- `AI_MODEL`: Model name sent to the provider.
+- `AI_API_KEY`: Optional Bearer token for the provider.
+
 - `DASHBOARD_ENABLED`:  Whether the web dashboard is enabled.
 - `DASHBOARD_HOSTNAME`: Your web dashboard hostname.
 - `DASHBOARD_SECURE`: Whether the dashboard uses `http` or `https`.

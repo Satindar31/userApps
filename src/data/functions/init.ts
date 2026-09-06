@@ -39,6 +39,7 @@ export default async function init(): Promise<void> {
 		commandStatus = {
 			...commandStatus,
 			ask: false,
+			naviac: false,
 			upload: false,
 			shorten: false,
 		};
@@ -47,5 +48,14 @@ export default async function init(): Promise<void> {
 			`${__dirname}/../permissions/commandStatus.json`,
 			JSON.stringify(commandStatus, null, 4),
 		);
+	} else {
+		const commandStatus: CommandStatus = await commandStatusFile.json();
+		if (commandStatus.naviac === undefined && commandStatus.ask !== undefined) {
+			commandStatus.naviac = commandStatus.ask;
+			Bun.write(
+				`${__dirname}/../permissions/commandStatus.json`,
+				JSON.stringify(commandStatus, null, 4),
+			);
+		}
 	}
 }

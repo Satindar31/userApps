@@ -27,6 +27,12 @@ export default {
 		token: process.env["NAVIAC_TOKEN"],
 	},
 
+	ai: {
+		baseUrl: process.env["AI_BASE_URL"],
+		model: process.env["AI_MODEL"],
+		apiKey: process.env["AI_API_KEY"],
+	},
+
 	web: {
 		enabled: process.env["DASHBOARD_ENABLED"] === "true",
 		hostname: process.env["DASHBOARD_HOSTNAME"] || "localhost",
