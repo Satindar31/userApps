@@ -12,3 +12,4 @@ tmp.ts
 apprise
 drizzle/
 migrations/
+compose.override.yml
