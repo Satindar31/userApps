@@ -1,4 +1,4 @@
-import type { NaviacConfig, ZiplineConfig } from "?/config";
+import type { AIConfig, NaviacConfig, ZiplineConfig } from "?/config";
 import type { CommandStatus } from "?/permissions";
 import type { Client } from "&/DiscordClient";
 import config from "$config";
@@ -65,6 +65,17 @@ export default function (client: Client) {
 			) {
 				return res.status(400).json({
 					error: `You must add your zipline token, url and chunk size in order to be able to enable the command "${command}"`,
+				});
+			}
+
+			if (
+				commandData.requires.includes("ai") &&
+				["baseUrl", "model"].some(
+					(cfg) => !config?.ai?.[cfg as keyof AIConfig],
+				)
+			) {
+				return res.status(400).json({
+					error: `You must add an AI base URL and model in order to be able to enable the command "${command}"`,
 				});
 			}
 		}

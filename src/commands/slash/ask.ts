@@ -6,7 +6,7 @@ import { type ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "di
 
 export default {
 	name: "ask",
-	requires: [],
+	requires: ["ai"],
 
 	async execute(_client: Client, int: ChatInputCommandInteraction) {
 		const ai = config.ai;

@@ -1,5 +1,5 @@
 import { MessageFlags, type ChatInputCommandInteraction } from "discord.js";
-import type { NaviacConfig, ZiplineConfig } from "@/types/config";
+import type { AIConfig, NaviacConfig, ZiplineConfig } from "@/types/config";
 import type { CommandStatus } from "../../../types/permissions";
 import type { Client } from "&/DiscordClient";
 import config from "$config";
@@ -50,6 +50,19 @@ export default async function (
 		return await int.reply({
 			content:
 				"You must add your zipline token, url and chunk size in order to be able to enable this command",
+			flags: MessageFlags.Ephemeral,
+		});
+	}
+
+	if (
+		commandData.requires.includes("ai") &&
+		["baseUrl", "model"].some(
+			(cfg) => !config?.ai?.[cfg as keyof AIConfig],
+		)
+	) {
+		return await int.reply({
+			content:
+				"You must add an AI base URL and model in order to be able to enable this command",
 			flags: MessageFlags.Ephemeral,
 		});
 	}

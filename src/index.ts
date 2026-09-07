@@ -1,5 +1,5 @@
 import express, { type Request, type Response } from "express";
-import type { NaviacConfig, ZiplineConfig } from "?/config";
+import type { AIConfig, NaviacConfig, ZiplineConfig } from "?/config";
 import MiddlewaresHandler from "./web/middlewares/export";
 import { GatewayIntentBits, Partials } from "discord.js";
 import type { CommandStatus } from "?/permissions";
@@ -168,6 +168,19 @@ for (const dir of commandDirs) {
 				`\x1b[31mYou must add your zipline token, url and chunk size or disable the command "${commandData.name}" in "data/permissions/commandStatus.json"\x1b[0m`,
 			);
 
+			process.exit(1);
+		}
+
+		if (
+			commandStatusJSON[commandData.name] &&
+			commandData.requires.includes("ai") &&
+			["baseUrl", "model"].some(
+				(cfg) => !config.ai?.[cfg as keyof AIConfig],
+			)
+		) {
+			console.log(
+				`\x1b[31mYou must add an AI base URL and model or disable the command "${commandData.name}" in "data/permissions/commandStatus.json"\x1b[0m`,
+			);
 			process.exit(1);
 		}
 
