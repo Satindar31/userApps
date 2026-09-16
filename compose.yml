@@ -18,7 +18,8 @@ services:
     bot:
         ports:
             - 3000:3000
-        image: stefdp/discord-user-apps
+        build: .
+        image: discord-user-apps:local
         container_name: discord-user-apps
         restart: unless-stopped
         env_file:

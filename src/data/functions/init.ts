@@ -51,7 +51,8 @@ export default async function init(): Promise<void> {
 	} else {
 		const commandStatus: CommandStatus = await commandStatusFile.json();
 		if (commandStatus.naviac === undefined && commandStatus.ask !== undefined) {
-			commandStatus.naviac = commandStatus.ask;
+			commandStatus.ask = false;
+			commandStatus.naviac = false;
 			Bun.write(
 				`${__dirname}/../permissions/commandStatus.json`,
 				JSON.stringify(commandStatus, null, 4),
