@@ -1,5 +1,7 @@
 import type { Config } from "?/config";
 
+const ziplineUrl = process.env["ZIPLINE_URL"]?.trim().replace(/\/+$/, "");
+
 export default {
 	token: process.env["BOT_TOKEN"],
 	owners: process.env["OWNERS"]?.split(",") || [],
@@ -13,7 +15,10 @@ export default {
 
 	zipline: {
 		token: process.env["ZIPLINE_TOKEN"],
-		url: process.env["ZIPLINE_URL"],
+		url:
+			ziplineUrl && !/^https?:\/\//i.test(ziplineUrl)
+				? `https://${ziplineUrl}`
+				: ziplineUrl,
 		chunkSize: Number.parseInt(String(process.env["ZIPLINE_CHUNK_SIZE"])) || 20,
 		maxFileSize:
 			Number.parseInt(String(process.env["ZIPLINE_MAX_FILE_SIZE"])) || 1024,
